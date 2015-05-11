@@ -1,0 +1,43 @@
+{% for tag in product.tags %}
+	{% assign t = tag | downcase %}
+	{% if t contains 'freight' %}
+		{% assign freight = true %}
+		{% assign amount = t | split:'-' %}{% assign amount = amount[1] | remove:' ' %}{% endif %}
+	{% endif %}
+{% endfor %}
+
+
+
+{% if freight %}
+	{% for product in collections.utility.products %}
+		{% if product.handle == 'freight-shipping' %}
+			{% if amount == blank %}
+				{% assign vID = product.variants[0].id %}
+			{% else %}
+				{% for variant in product.variants %}
+					{% if variant.title == amount %}{% assign vID = variant.id %}{% endif %}
+				{% endfor %}
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+	function addToCart() {
+		var qty = $('.quantity').val();
+		var request = new XMLHttpRequest();
+		request.open("POST", "/cart/add.js", false);
+		request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		jQuery.post('/cart/add.js', {
+			quantity: qty,
+			id: {{ vID }},
+			properties: {
+				'Product': '{{ product.title }}',
+			}
+		});
+	}
+{% endif %}            
+      
+</script>
+
+
+
+
+
