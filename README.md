@@ -11,7 +11,7 @@ This is a method to create sort-of product-specific shipping rates. All this doe
   I also add the shop logo as the product image so it looks nicer in the cart.
 3. Add the freight shipping cost variants
   Note, the title of each freight shipping cost should match the unformatted dollar value. For example, if the cost is $250.00, the variant title should be 250
-  ![Login link](https://github.com/lukehatfield/shopifyRedirect/raw/master/images/screenshot.png "Login link")
+  https://github.com/zakhardage/Shopify-Freight-Shipping/raw/master/screenshot.png
 4. Add the trigger tag to the product that needs shipping in this format: freight-[cost]
   Examples: freight-50, freight-250
   Note: the trigger tag cost must match the variant title exactly
