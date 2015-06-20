@@ -6,12 +6,17 @@ This is a method to create sort-of product-specific shipping rates. All this doe
 ## Steps
 
 1. Upload the freight-shipping.liquid snippet to the product template.
-2. Add the "Freight Shipping" product to the shop and add it to a collection called "Utility."
+2. Add a call for the addToCart function. You can add this to the add-to-cart button.  
+3. Add the "Freight Shipping" product to the shop and add it to a collection called "Utility."
   I use the utility collection so that you don't have to loop through hundreds/thousands of products to find the freight shipping product.
   I also add the shop logo as the product image so it looks nicer in the cart.
-3. Add the freight shipping cost variants.
+4. Add the freight shipping cost variants.
   Note, the title of each freight shipping cost should match the unformatted dollar value. For example, if the cost is $250.00, the variant title should be 250.
   <img src="screenshot.png" />
-4. Add the trigger tag to the product that needs shipping in this format: freight-[cost]
+5. Add the trigger tag to the product that needs shipping in this format: freight-[cost]
   Examples: freight-50, freight-250.
   Note: the trigger tag cost must match the variant title exactly.
+
+## Troubleshooting
+
+If nothing is showing up in your cart it may be because there's an ajaxify'd add-to-cart script on your product page.
